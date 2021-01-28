@@ -19,6 +19,8 @@ class App extends React.Component {
       btnplus: "+",
       btnmulti: "*",
       btndiv: "/",
+      btnLeft: "(",
+      btnRight: ")",
     }
   }
   render() {
@@ -45,6 +47,8 @@ class App extends React.Component {
         {/* 0, =, */}
         <button onClick={this.handleClick} id="btn0">0</button>
         <button onClick="dummy">=</button>
+        <button onClick={this.handleClick} id="btnLeft">(</button>
+        <button onClick={this.handleClick} id="btnRight">)</button>
       </div>
     )
   }
