@@ -34,8 +34,31 @@ class App extends React.Component {
           value={this.state.displayText}
           class="calc-row"
         ></input>
-        {/* 7, 8, 9, + */}
         <div class="calc-row">
+          <button onClick={this.handleClick} id="btnLeft">
+            (
+          </button>
+          <button onClick={this.handleClick} id="btnRight">
+            )
+          </button>
+          <button>mc</button>
+          <button>m+</button>
+          <button>m-</button>
+          <button>mr</button>
+          <button>C</button>
+          <button>+/-</button>
+          <button>%</button>
+          <button onClick={this.handleClick} id="btndiv">
+            /
+          </button>
+        </div>
+        <div class="calc-row">
+          <button>2nd</button>
+          <button>x^2</button>
+          <button>x^3</button>
+          <button>x^y</button>
+          <button>e^x</button>
+          <button>10^x</button>
           <button onClick={this.handleClick} id="btn7">
             7
           </button>
@@ -45,12 +68,17 @@ class App extends React.Component {
           <button onClick={this.handleClick} id="btn9">
             9
           </button>
-          <button onClick={this.handleClick} id="btnplus">
-            +
+          <button onClick={this.handleClick} id="btnmulti">
+            *
           </button>
         </div>
-        {/* 4, 5, 6, - */}
         <div class="calc-row">
+          <button>1/x</button>
+          <button>sqrt(x)</button>
+          <button>cbrt(x)</button>
+          <button>yrt(x)</button>
+          <button>ln</button>
+          <button>log10</button>
           <button onClick={this.handleClick} id="btn4">
             4
           </button>
@@ -64,8 +92,13 @@ class App extends React.Component {
             -
           </button>
         </div>
-        {/* 1, 2, 3, * */}
         <div class="calc-row">
+          <button>x!</button>
+          <button>sin</button>
+          <button>cos</button>
+          <button>tan</button>
+          <button>e</button>
+          <button>EE</button>
           <button onClick={this.handleClick} id="btn1">
             1
           </button>
@@ -75,29 +108,25 @@ class App extends React.Component {
           <button onClick={this.handleClick} id="btn3">
             3
           </button>
-          <button onClick={this.handleClick} id="btnmulti">
-            *
+          <button onClick={this.handleClick} id="btnplus">
+            +
           </button>
         </div>
-        {/* 0, /, */}
         <div class="calc-row">
+          <button>Rad</button>
+          <button>sinh</button>
+          <button>cosh</button>
+          <button>tanh</button>
+          <button>PI</button>
+          <button>Rand</button>
           <button onClick={this.handleClick} id="btn0">
             0
           </button>
-          <button onClick={this.handleClick} id="btnLeft">
-            (
-          </button>
-          <button onClick={this.handleClick} id="btnRight">
-            )
-          </button>
-          <button onClick={this.handleClick} id="btndiv">
-            /
+          <button>.</button>
+          <button onClick={this.handleSum} class="calc-row" id="btneqls">
+            =
           </button>
         </div>
-        {/* = */}
-        <button onClick={this.handleSum} class="calc-row" id="btneqls">
-          =
-        </button>
       </div>
     );
   }
