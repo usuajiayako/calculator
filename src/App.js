@@ -20,7 +20,8 @@ class App extends React.Component {
       btnmulti: '*',
       btndiv: '/',
       btnLeft: '(',
-      btnRight: ')'
+      btnRight: ')',
+      btnSqr: '**'
     }
   };
   render() {
@@ -45,7 +46,7 @@ class App extends React.Component {
           <button>m+</button>
           <button>m-</button>
           <button>mr</button>
-          <button>C</button>
+          <button onClick={this.clear}>C</button>
           <button>+/-</button>
           <button>%</button>
           <button onClick={this.handleClick} id="btndiv">
@@ -54,11 +55,13 @@ class App extends React.Component {
         </div>
         <div class="calc-row">
           <button>2nd</button>
-          <button>x^2</button>
-          <button>x^3</button>
-          <button>x^y</button>
-          <button>e^x</button>
-          <button>10^x</button>
+          <button onClick={this.handleClick} id="btnSqr">
+            x²
+          </button>
+          <button>x³</button>
+          <button>xʸ</button>
+          <button>eˣ</button>
+          <button>10ˣ</button>
           <button onClick={this.handleClick} id="btn7">
             7
           </button>
@@ -74,7 +77,7 @@ class App extends React.Component {
         </div>
         <div class="calc-row">
           <button>1/x</button>
-          <button>sqrt(x)</button>
+          <button>√sqrt(x)</button>
           <button>cbrt(x)</button>
           <button>yrt(x)</button>
           <button>ln</button>
@@ -140,12 +143,18 @@ class App extends React.Component {
 
   handleSum = () => {
     this.setState(currentState => {
-      const numRegex = /(\d+)[\D](\d+)/;
-      const symbolRegex = /\D/;
+      const symbolRegex = /\D+/;
+      const numRegex = /(\d+)[\D]+(\d+)/;
 
-      const x = +currentState.displayText.match(numRegex)[1];
-      const y = +currentState.displayText.match(numRegex)[2];
       const symbol = currentState.displayText.match(symbolRegex)[0];
+
+      let [x, y] = [0, 0];
+
+      x = +currentState.displayText.match(numRegex)[1];
+
+      if (symbol !== '**') {
+        y = +currentState.displayText.match(numRegex)[2];
+      }
 
       const calculation = this.binaryCalculate(x, y, symbol);
 
@@ -158,6 +167,13 @@ class App extends React.Component {
     if (symbol === '-') return x - y;
     if (symbol === '*') return x * y;
     if (symbol === '/') return x / y;
+    if (symbol === '**') return x ** 2;
+  };
+
+  clear = () => {
+    this.setState(() => {
+      return { displayText: '' };
+    });
   };
 }
 
