@@ -1,29 +1,36 @@
 import './App.css';
 import React from 'react';
 import KeyPad from "./KeyPad"
+import Display from "./Display"
 
 class App extends React.Component {
+
   state = {
     displayText: ''
   };
+
   render() {
     return (
       <div class="calculator">
         <h1>Calculator</h1>
-
-        <input
-          type="text"
-          onChange={this.handleInput}
-          value={this.state.displayText}
-          class="calc-row"
-        ></input>
+        <Display value={this.state.displayText}/>
         <div class="keypad">
-        <KeyPad />
+        <KeyPad update={this.updateDisplayText}/>
         </div>
-        
       </div>
     );
   }
+
+  updateDisplayText = (newChar) => {
+    console.log("in updateDisplayText")
+    this.setState((currentState) => {
+      return { displayText: currentState.displayText + newChar}
+      
+    })
+  }
+
+
+
   handleClick = ({ target: { id } }) => {
     this.setState(currentState => {
       return {
