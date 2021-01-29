@@ -14,3 +14,9 @@ button {
 input {
   width: 152px;
 }
+
+.keypad {
+  max-width: 200px;
+  display: flex wrap;
+  flex-direction: row;
+}

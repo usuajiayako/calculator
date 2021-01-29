@@ -34,5 +34,12 @@
 [ check ] Function to evaluate as result of click and calculate
 [ ] Style the calculator using css
 [ ]
+[ ] 
 [ ]
-[ ]
+
+## Day2 checklist
+[Check] Button component
+[Check] State defined for button component 
+[] display component
+[] calculation to work
+[] css styling 

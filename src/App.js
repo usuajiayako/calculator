@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import KeyPad from "./KeyPad"
 
 class App extends React.Component {
   state = {
@@ -35,6 +36,9 @@ class App extends React.Component {
           value={this.state.displayText}
           class="calc-row"
         ></input>
+        <div class="keypad">
+        <KeyPad />
+        </div>
         <div class="calc-row">
           <button onClick={this.handleClick} id="btnLeft">
             (
